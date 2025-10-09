@@ -4,9 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ZöldLélek – Vegán Étterem</title>
+  <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Merriweather:wght@300;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header>
@@ -40,48 +40,107 @@
       </p>
       <p class="pill">Nyitva: H–V 11:30–22:00 • VIII. ker., Zöldfa utca 12.</p>
     </div>
-    <img src="images/kep3.jpg" alt="Friss vegán fogások tálalva">
+    <img src="_images/kep3.jpg" alt="Friss vegán fogások tálalva">
   </section>
 
   <section id="etlap">
-    <h2 class="section-title">Étlap – Kedvencek</h2>
- <div class="grid menu-grid">
-      <article class="menu-card">
-        <img src="https://images.unsplash.com/photo-1526318472351-c75fcf070305?q=80&w=800&auto=format&fit=crop" alt="Sütőtök krémleves pirított magokkal">
-        <div>
-          <h3>Sütőtök krémleves <span class="price">1 990 Ft</span></h3>
-          <p class="pill">Kókusztej • gyömbér • pirított tökmag</p>
-        </div>
-      </article>
+    <h2 class="section-title">Étlap</h2>
+  <section class="carousel" role="region" aria-label="Kiemelt fotók">
+    <div class="carousel__viewport">
+      <ul class="carousel__track" id="track">
+        <li class="carousel__slide" aria-roledescription="slide" aria-label="1 / 4">
+          <img src="_images/kep1.png" alt="WokkBoom"/>
+        </li>
+        <li class="carousel__slide" aria-roledescription="slide" aria-label="2 / 4">
+          <img src="_images/kep2.png" alt="Tatár-tartár"/>
+        </li>
+        <li class="carousel__slide" aria-roledescription="slide" aria-label="3 / 4">
+          <img src="_images/kep4.png" alt="Csicseri tál"/>
+        </li>
+        <li class="carousel__slide" aria-roledescription="slide" aria-label="4 / 4">
+          <img src="_images/kep5.png" alt="Pumpkin Spice"/>
+        </li>
+      </ul>
+    </div>
 
-      <article class="menu-card">
-        <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?q=80&w=800&auto=format&fit=crop" alt="Buddha-tál friss zöldségekkel">
-        <div>
-          <h3>Buddha-tál <span class="price">3 450 Ft</span></h3>
-          <p class="pill">Quinoa • avokádó • csicseriborsó • tahini</p>
-        </div>
-      </article>
-
-      <article class="menu-card">
-        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=800&auto=format&fit=crop" alt="Zöldséges ramen gombával">
-        <div>
-          <h3>Zöldséges ramen <span class="price">3 290 Ft</span></h3>
-          <p class="pill">Shiitake • pak choi • miso-alaplé</p>
-        </div>
-      </article>
-
-      <article class="menu-card">
-        <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=800&auto=format&fit=crop" alt="Csokoládés chia puding bogyós gyümölcsökkel">
-        <div>
-          <h3>Csokis chia puding <span class="price">1 690 Ft</span></h3>
-          <p class="pill">Mandulatej • kakaó • erdei gyümölcs</p>
-        </div>
-      </article>
+    <div class="carousel__controls" aria-label="Vezérlők">
+      <button class="carousel__btn" id="prev" type="button" aria-label="Előző">‹</button>
+      <div class="carousel__dots" id="dots" role="tablist" aria-label="Diaválasztó"></div>
+      <button class="carousel__btn" id="next" type="button" aria-label="Következő">›</button>
     </div>
   </section>
 
+  <script>
+    // Alapelemek
+    const track = document.getElementById('track');
+    const slides = Array.from(track.children);
+    const prev = document.getElementById('prev');
+    const next = document.getElementById('next');
+    const dots = document.getElementById('dots');
+
+    // Pont-indikátorok létrehozása
+    slides.forEach((_, i) => {
+      const b = document.createElement('button');
+      b.className = 'carousel__dot';
+      b.type = 'button';
+      b.setAttribute('role', 'tab');
+      b.setAttribute('aria-label', `${i+1}. dia`);
+      b.addEventListener('click', () => goTo(i));
+      dots.appendChild(b);
+    });
+
+    // Aktív index követése
+    let index = 0;
+    const updateDots = () => {
+      dots.querySelectorAll('.carousel__dot').forEach((d, i) => {
+        d.setAttribute('aria-current', i === index ? 'true' : 'false');
+      });
+    };
+
+    // Görgetés adott diára (scroll-snap + scrollIntoView)
+    function goTo(i) {
+      index = (i + slides.length) % slides.length;
+      slides[index].scrollIntoView({ behavior: 'smooth', inline: 'center' });
+      updateDots();
+    }
+
+    // Előző/Következő
+    prev.addEventListener('click', () => goTo(index - 1));
+    next.addEventListener('click', () => goTo(index + 1));
+
+    // Billentyűzet támogatás (bal/jobb)
+    track.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') { e.preventDefault(); goTo(index - 1); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); goTo(index + 1); }
+    });
+
+    // Görgetés közbeni – melyik dia van középen?
+    let ticking = false;
+    track.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const mid = track.scrollLeft + track.clientWidth / 2;
+          let nearest = 0, nearestDist = Infinity;
+          slides.forEach((slide, i) => {
+            const box = slide.getBoundingClientRect();
+            const left = slide.offsetLeft;
+            const center = left + slide.offsetWidth / 2;
+            const dist = Math.abs(center - mid);
+            if (dist < nearestDist) { nearestDist = dist; nearest = i; }
+          });
+          if (nearest !== index) { index = nearest; updateDots(); }
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+
+    // Kezdő állapot
+    updateDots();
+  </script>
+
   <section id="rolunk" class="hero">
-    <img src="images/etterem.jpg" alt="Hangulatos belső tér növényekkel" style="width:600px;">
+    <img src="_images/etterem.jpg" alt="Hangulatos belső tér növényekkel" style="width:600px;">
         <div class="card">
           <h2 class="section-title">Rólunk</h2>
           <p class="justify">
@@ -92,7 +151,7 @@
   </section>
 
   <section id="foglalas" class="reserve">
-    <form id="foglalas-form" data-endpoint="http://localhost:3000/reservations">
+    <form aria-labelledby="foglalas-cim">
       <h2 id="foglalas-cim" class="section-title">Asztalfoglalás</h2>
       <label for="nev">Név</label>
       <input id="nev" name="nev" type="text" placeholder="Teljes név" required>
