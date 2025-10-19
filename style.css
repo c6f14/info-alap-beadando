@@ -188,3 +188,27 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* Egységes ár-konténer */
+.menu-header .price{
+  display: inline-block;        /* saját doboz */
+  white-space: nowrap;          /* "Ft" sose törjön új sorba */
+  font-variant-numeric: tabular-nums; /* azonos szélességű számjegyek */
+  text-align: right;
+
+  /* egységes méret és megjelenés */
+  flex: 0 0 8.5rem;             /* << minden kártyán ugyanekkora szélesség */
+  padding: .2rem .6rem;
+  border: 0px solid rgba(255,255,255,.12);
+  border-radius: 0;
+  /* opcionális háttér:
+  background: rgba(255,255,255,.04);
+  */
+}
+
+/* Kisebb kijelzőn lehet kicsit keskenyebb */
+@media (max-width: 480px){
+  .menu-header .price{
+    flex-basis: 7rem;
+  }
+}
