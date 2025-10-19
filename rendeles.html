@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ZöldLélek – Rendelés</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<header>
+  <div class="nav">
+    <a class="brand" href="#kezdolap">
+        <img src="logo/ZoldLelek-green.svg" alt="ZöldLélek" width="30" height="24">
+            <span>ZöldLélek</span>
+    </a>
+    <nav>
+      <ul>
+        <li><a href="etlap.html">Étlap</a></li>
+        <li><a href="rendeles.html" aria-current="page">Rendelés</a></li>
+        <li><a href="index.html#rolunk">Rólunk</a></li>
+      </ul>
+    </nav>
+    <a class="cta-btn" href="index.html#foglalas">Asztalfoglalás</a>
+  </div>
+</header>
+
+<main class="container order-wrap">
+  <section>
+    <h1 class="section-title" style="text-align:center;margin-bottom:16px">Rendelj házhoz</h1>
+    <p style="text-align:center;opacity:.85;margin-bottom:28px">
+      Válaszd ki a platformot és irány a rendelés!
+    </p>
+
+    <div class="tiles">
+      <!-- Wolt csempe – cseréld a href-et a saját étterem URL-jére -->
+      <a class="tile tile--wolt" 
+         href="https://wolt.com/hu" 
+         target="_blank" rel="noopener noreferrer"
+         aria-label="Rendelés Wolt-on">
+        <!-- Egyszerű ikon -->
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M3 12h18M12 3v18" stroke="currentColor" stroke-width="2" opacity=".35"/>
+          <circle cx="12" cy="12" r="7" fill="currentColor" opacity=".18"/>
+        </svg>
+        Rendelés Wolt-on
+      </a>
+
+      <!-- Foodora csempe – cseréld a href-et a saját étterem URL-jére -->
+      <a class="tile tile--foodora" 
+         href="https://www.foodora.hu/" 
+         target="_blank" rel="noopener noreferrer"
+         aria-label="Rendelés Foodorán">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M4 7h16l-2 10H6L4 7Z" stroke="currentColor" stroke-width="2" opacity=".35"/>
+          <circle cx="8" cy="19" r="2" fill="currentColor" opacity=".2"/>
+          <circle cx="16" cy="19" r="2" fill="currentColor" opacity=".2"/>
+        </svg>
+        Rendelés Foodorán
+      </a>
+    </div>
+
+    <div style="text-align:center">
+      <a class="back-link" href="index.html">← Vissza a kezdőlapra</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container foot">
+    <span>© 2025 ZöldLélek Vegán Étterem</span>
+    <span><a href="index.html">Kezdőlap</a></span>
+  </div>
+</footer>
+</body>
+</html>

@@ -175,6 +175,75 @@
         }
     
 
+/* Kisebb kijelzőn lehet kicsit keskenyebb */
+@media (max-width: 480px){
+  .menu-header .price{
+    flex-basis: 7rem;
+  }
+}
+
+/*RENDELÉS*/
+
+/* Két nagy csempe, középre igazítva */
+.order-wrap{
+  min-height: 70vh;
+  display: grid;
+  place-items: center;
+}
+.tiles{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(220px, 360px));
+  gap: 24px;
+}
+@media (max-width: 700px){
+  .tiles{ grid-template-columns: 1fr; }
+}
+.tile{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 28px 24px;
+  border-radius: 18px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.25rem;
+  box-shadow: 0 8px 22px rgba(0,0,0,.18);
+  transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
+  color: #fff;
+}
+.tile:hover,
+.tile:focus-visible{
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(0,0,0,.25);
+  filter: brightness(1.05);
+  outline: none;
+}
+.tile svg{
+  width: 28px; height: 28px;
+  flex: 0 0 28px;
+}
+/* Márkaszínek */
+.tile--wolt{ background:#009de0; }
+.tile--foodora{ background:#e60064; }
+/* Vissza link stílus */
+.back-link{
+  display:inline-block;
+  margin-top: 18px;
+  opacity:.8;
+}
+
+/*ÉTLAP*/
+
+/* apró kiegészítés az összetevők listához */
+.ingredients{margin:.35rem 0 0 0;padding-left:1.1rem;color:var(--muted);font-size:.95rem}
+.tag{font-size:.72rem;padding:.15rem .5rem;border-radius:999px;border:1px solid rgba(255255,255,.12);margin-left:.35rem;opacity:.85}
+.tag--gf{border-color:#8ce5bf;color:#8ce5bf}
+.tag--spicy{border-color:#ffb366;color:#ffb366}
+.menu-header{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.menu-section{margin:10px 0 24px}
+
+
 /* Főételek: fix 2 oszlop */
 .menu-grid.two-per-row{
   display: grid;
@@ -204,11 +273,4 @@
   /* opcionális háttér:
   background: rgba(255,255,255,.04);
   */
-}
-
-/* Kisebb kijelzőn lehet kicsit keskenyebb */
-@media (max-width: 480px){
-  .menu-header .price{
-    flex-basis: 7rem;
-  }
 }
