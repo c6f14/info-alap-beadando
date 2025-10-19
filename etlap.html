@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ZöldLélek – Étlap</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Merriweather:wght@300;700&display=swap" rel="stylesheet">
+  <style>
+    /* apró kiegészítés az összetevők listához */
+    .ingredients{margin:.35rem 0 0 0;padding-left:1.1rem;color:var(--muted);font-size:.95rem}
+    .tag{font-size:.72rem;padding:.15rem .5rem;border-radius:999px;border:1px solid rgba(255,255,255,.12);margin-left:.35rem;opacity:.85}
+    .tag--gf{border-color:#8ce5bf;color:#8ce5bf}
+    .tag--spicy{border-color:#ffb366;color:#ffb366}
+    .menu-header{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+    .menu-section{margin:10px 0 24px}
+  </style>
+</head>
+<body>
+<header>
+  <div class="nav">
+    <a class="brand" href="index.html">
+      <div class="logo" aria-hidden="true"></div>
+      <span>ZöldLélek</span>
+    </a>
+    <nav>
+      <ul>
+        <li><a href="etlap.html">Étlap</a></li>
+        <li><a href="index.html#rolunk">Rólunk</a></li>
+      </ul>
+    </nav>
+    <a class="cta-btn" href="index.html#foglalas">Asztalfoglalás</a>
+  </div>
+</header>
+
+<main class="container">
+  <h1 class="section-title">Étlap</h1>
+
+  <!-- ELŐÉTELEK -->
+  <section class="menu-section">
+    <h2 class="section-title">Előételek</h2>
+    <div class="grid menu-grid">
+      <article class="menu-card">
+        <img src="images/etlap/cekla_piritos.PNG" alt="Céklás tatár tálalva">
+        <div>
+          <div class="menu-header">
+            <h3>Céklás “Tatár” pirítóssal <span class="tag tag--gf">GF opció</span></h3>
+            <span class="price">2 900 Ft</span>
+          </div>
+          <div class="ingredients">
+            sült cékla, kapribogyó, mustár, mandula-majonéz, lilahagyma, kovászos/GM pirítós
+          </div>
+        </div>
+      </article>
+
+      <article class="menu-card">
+        <img src="images/etlap/edameme_uborka.PNG" alt="Edamame bab és szezámos uborka">
+        <div>
+          <div class="menu-header">
+            <h3>Szezámos edamame & uborka <span class="tag tag--gf">GF</span></h3>
+            <span class="price">2 400 Ft</span>
+          </div>
+          <div class="ingredients">
+            edamame, uborka, pirított szezámmag, rizsecet, tamari, gyömbér
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- FŐÉTELEK -->
+  <section class="menu-section">
+    <h2 class="section-title">Főételek</h2>
+    <div class="grid menu-grid two-per-row">
+      <article class="menu-card">
+        <img src="images/etlap/csicseri_buddha.PNG" alt="Csicseris Buddha-tál">
+        <div>
+          <div class="menu-header">
+            <h3>Csicseris Buddha-tál <span class="tag tag--gf">GF</span></h3>
+            <span class="price">4 900 Ft</span>
+          </div>
+          <div class="ingredients">
+            fűszeres csicseri, quinoa, avokádó, párolt brokkoli, sütőtök, tahini-citrom öntet
+          </div>
+        </div>
+      </article>
+
+      <article class="menu-card">
+        <img src="images/etlap/gomba_stoganoff2.PNG" alt="Gomba stroganoff spagettivel">
+        <div>
+          <div class="menu-header">
+            <h3>Gomba Stroganoff <span class="tag">búza tészta</span></h3>
+            <span class="price">4 700 Ft</span>
+          </div>
+          <div class="ingredients">
+            erdei gombák, szójajoghurt, dijoni mustár, kapor, vöröshagyma, fokhagyma, spagetti / rizstészta (GF)
+          </div>
+        </div>
+      </article>
+      <article class="menu-card">
+        <img src="images/etlap/kokuszos_zoldseg_curry.PNG" alt="Fűszeres kókuszos curry tálalva">
+        <div>
+          <div class="menu-header">
+            <h3>Kókuszos zöldség-curry <span class="tag tag--gf">GF</span> <span class="tag tag--spicy">csípős</span></h3>
+            <span class="price">4 800 Ft</span>
+          </div>
+          <div class="ingredients">
+            édesburgonya, zöldbab, karfiol, kókusztej, zöld curry paszta, jázminrizs
+          </div>
+        </div>
+      </article>
+      <article class="menu-card">
+        <img src="images/etlap/tempeh_burger.PNG" alt="BBQ tempeh burger">
+        <div>
+          <div class="menu-header">
+            <h3>BBQ Tempeh Burger</h3>
+            <span class="price">4 900 Ft</span>
+          </div>
+          <div class="ingredients">
+            házi BBQ tempeh, savanyított lilakáposzta, jalapeño majonéz, saláta, kovászos zsemle • hasáb/édesburgonya
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- DESSZERTEK -->
+  <section class="menu-section">
+    <h2 class="section-title">Desszertek</h2>
+    <div class="grid menu-grid">
+      <article class="menu-card">
+        <img src="images/etlap/pumpkin_spice_poharkrem.PNG" alt="Sütőtökös fűszeres pohárkrém">
+        <div>
+          <div class="menu-header">
+            <h3>Pumpkin-Spice pohárkrém <span class="tag tag--gf">GF</span></h3>
+            <span class="price">2 200 Ft</span>
+          </div>
+          <div class="ingredients">
+            sütőtök, kókusztejszín, datolya, fahéj, gyömbér, szerecsendió, mandulás ropogós
+          </div>
+        </div>
+      </article>
+
+      <article class="menu-card">
+        <img src="images/etlap/dupla_csoki_brownie.PNG" alt="Csokoládés brownie">
+        <div>
+          <div class="menu-header">
+            <h3>Dupla csoki brownie</h3>
+            <span class="price">2 400 Ft</span>
+          </div>
+          <div class="ingredients">
+            70% kakaó, olívaolaj, nádcukor, mandulaliszt, vanília, tengeri só
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ITALOK -->
+  <section class="menu-section">
+    <h2 class="section-title">Italok</h2>
+    <div class="grid menu-grid">
+      <article class="menu-card">
+        <img src="images/etlap/zöld_smoothie.PNG" alt="Hidegen préselt zöldlé">
+        <div>
+          <div class="menu-header">
+            <h3>Zöld energia lé <span class="tag tag--gf">GF</span></h3>
+            <span class="price">1 500 Ft</span>
+          </div>
+          <div class="ingredients">
+            alma, uborka, zeller, spenót, gyömbér, citrom
+          </div>
+        </div>
+      </article>
+
+      <article class="menu-card">
+        <img src="images/etlap/zöld_smoothie.PNG" alt="Matcha latte zabtejjel">
+        <div>
+          <div class="menu-header">
+            <h3>Matcha latte (zab / mandula)</h3>
+            <span class="price">1 350 Ft</span>
+          </div>
+          <div class="ingredients">
+            ceremoniális matcha, növényi tej, akácméz/agávé (kérésre cukormentes)
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <p class="pill">Minden étel 100% növényi alapú. Kérj bátran gluténmentes opciót, ha elérhető.</p>
+</main>
+
+<footer>
+  <div class="container foot">
+    <span>© 2025 ZöldLélek Vegán Étterem</span>
+    <span><a href="index.html">Vissza a kezdőlapra</a></span>
+  </div>
+</footer>
+</body>
+</html>

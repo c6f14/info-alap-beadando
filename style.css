@@ -175,3 +175,16 @@
         }
     
 
+/* Főételek: fix 2 oszlop */
+.menu-grid.two-per-row{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+/* Mobilon 1 oszlopra törik */
+@media (max-width: 768px){
+  .menu-grid.two-per-row{
+    grid-template-columns: 1fr;
+  }
+}
